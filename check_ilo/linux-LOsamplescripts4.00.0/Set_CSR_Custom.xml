@@ -1,0 +1,76 @@
+<!--         RIBCL Sample Script for HP Lights-Out Products          -->
+<!--Copyright (c) 2012 Hewlett-Packard Development Company, L.P.     -->
+
+<!-- Description:  This is a sample XML script to set Certificate    -->
+<!--               Signing Request(CSR) with custom subject info.    -->
+<!--               These CSR settings will be employed the next time -->
+<!--               when iLO generates a new CSR.                     -->
+<!-- NOTE:  You will need to replace the USER_LOGIN and PASSWORD     -->
+<!--        values with values that are appropriate for your         -->
+<!--        environment.                                             -->
+<!--        Use CPQLOCFG.EXE ver 3.20 or greater with this script.   -->
+<!--        This script was written for iLO 2 firmware version 2.06  -->
+<!--        release.                                                 -->
+
+<!-- Help:                                                           -->
+<!-- CSR_USE_CERT_CUSTOM_SUBJECT :                                   -->
+<!--      This indicates whether to use custom or default settings   -->
+<!--      for CSR generation. When set to Yes, it enables using of   -->
+<!--      CUSTOM_SUBJECT, and all the six CSR_SUBJECT_xx fields must -->
+<!--      be present and must have valid values as described below.  -->
+<!-- CSR_SUBJECT_COUNTRY:                                            -->
+<!--      This field is of length 2 characters, which should be in   -->
+<!--      uppercase.                                                 -->
+<!-- CSR_SUBJECT_STATE:                                              -->
+<!--      This field is of max length 30 characters.                 -->
+<!-- CSR_SUBJECT_LOCATION:                                           -->
+<!--      This field is of max length 60 characters.                 -->
+<!-- CSR_SUBJECT_ORG_NAME:                                           -->
+<!--      This field is of max length 60 characters.                 -->
+<!-- CSR_SUBJECT_ORGUNIT_NAME:                                       -->
+<!--      This field is of max length 60 characters.                 -->
+<!-- CSR_SUBJECT_COMMON_NAME:                                        -->
+<!--      This field is of max length 60 characters.                 -->
+
+<!-- CSR_USE_CERT_2048PKEY:                                          -->
+<!--      This field is used to set the length of private key.       -->
+<!--      When set to Yes, private key of 2048 bit will be used, and -->
+<!--      when set to NO, a 1024 bit key is used.                    -->
+<!--      If this tag is absent from the script, the current setting -->
+<!--      will be used.                                              -->
+<!-- NOTE: When the 2048 bit private key is enabled, iLO 2 might take-->
+<!--      significant amount of time to generate the certificate for -->
+<!--      the first time. It is suggested to wait for sometime before-->
+<!--	  requesting the iLO 2 for CSR.                                -->
+
+<!--        See "HP Integrated Lights-Out Management Processor       -->
+<!--        Scripting and Command Line Resource Guide" for more      -->
+<!--        information on scripting and the syntax of the RIBCL     -->
+<!--        XML.                                                     -->
+
+<!--        Firmware support information for this script:            -->
+<!--            iLO 4  - None.                                       -->
+<!--            iLO 3  - None.                                       -->
+<!--            iLO 2  - Version 2.06 or later.                      -->
+
+<RIBCL VERSION="2.0">
+  <LOGIN USER_LOGIN="adminname" PASSWORD="password">
+    <RIB_INFO MODE="write">
+      <CSR_CERT_SETTINGS>
+        <CSR_USE_CERT_CUSTOM_SUBJECT VALUE = "Yes"/>
+        <!--  Following 6 tags must be present and   -->
+        <!--  provided with valid values, when used  -->
+        <!--  for Custom_CSR.                        -->
+        <CSR_SUBJECT_COUNTRY VALUE ="US"/>
+        <CSR_SUBJECT_STATE VALUE ="Texas"/>
+        <CSR_SUBJECT_LOCATION VALUE ="Houston"/>
+        <CSR_SUBJECT_ORG_NAME VALUE ="Hewlett-Packard Development Company"/>
+        <CSR_SUBJECT_ORGUNIT_NAME VALUE ="ISS"/>
+        <CSR_SUBJECT_COMMON_NAME VALUE ="test.com"/>
+        <!--  Following tag is independent of whether-->
+        <!--  Custom CSR or Default CSR is used      -->
+        <CSR_USE_CERT_2048PKEY VALUE= "No" />
+      </CSR_CERT_SETTINGS>
+    </RIB_INFO>
+  </LOGIN>
+</RIBCL>

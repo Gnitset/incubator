@@ -1,0 +1,37 @@
+<!--         RIBCL Sample Script for HP Lights-Out Products          -->
+<!--   Copyright (c) 2012 Hewlett-Packard Development Company, L.P.  -->
+
+<!-- Description:This a sample XML script to retrieve the HP SIM     -->
+<!--          Single Sign-On (SSO) settings on Integrated            -->
+<!--          Lights-Out 2 (iLO 2),Integrated Lights-Out 3 (iLO 3)   -->
+<!--          and Integrated Lights-Out 4 (iLO 4)                    -->
+
+<!-- NOTE:  You will need to replace the USER_LOGIN and PASSWORD     -->
+<!--        and other values inside the quotation marks with values  -->
+<!--        that are appropriate for your environment.               -->
+
+<!--        HP SIM Single Sign-On requires iLO 2 Advanced or iLO 2   -->
+<!--        Select license.                                          -->
+
+<!--        Use CPQLOCFG.EXE ver 4.00 or greater with this script.   -->
+
+<!--        This script was written for iLO 4 firmware version 1.01  -->
+<!--        release.                                                 -->
+
+<!--        See "HP Integrated Lights-Out Management Processor       -->
+<!--        Scripting and Command Line Resource Guide" for more      -->
+<!--        information on scripting and the syntax of the RIBCL     -->
+<!--        XML.                                                     -->
+
+<!--        Firmware support information for this script:            -->
+<!--            iLO 4 - All versions.                                -->
+<!--            iLO 3 - Version 1.05 and later.                      -->
+<!--            iLO 2 - Version 1.30 and later.                      -->
+
+<RIBCL VERSION="2.0">
+   <LOGIN USER_LOGIN="adminname" PASSWORD="password">
+      <SSO_INFO MODE="read">
+         <GET_SSO_SETTINGS/>
+      </SSO_INFO>
+   </LOGIN>
+</RIBCL>

@@ -1,0 +1,405 @@
+SOFTPAQ NUMBER:	 N/A
+PART NUMBER: 	 N/A
+FILE NAME:  	 N/A
+TITLE:  		 HP Lights-Out XML Scripting Sample for Linux
+
+VERSION:   	4.00.0
+LANGUAGE:  	English
+
+CATEGORY:  	Systems Management
+
+DIVISIONS:  Systems
+
+PRODUCTS AFFECTED:  
+   		HP ProLiant BL685c Gen8 Server
+   		HP ProLiant BL685c G7 Server
+   		HP ProLiant BL685c G6 Server
+   		HP ProLiant BL680c G7 Server
+   		HP ProLiant BL620c G7 Server
+   		HP ProLiant BL495c G6 Server
+   		HP ProLiant BL490c G7 Server
+   		HP ProLiant BL490c G6 Server
+   		HP ProLiant BL465c Gen8 Server
+   		HP ProLiant BL465c G7 Server
+   		HP ProLiant BL465c G6 Server
+   		HP ProLiant BL460c Gen8 Server
+   		HP ProLiant BL460c G7 Server
+   		HP ProLiant BL460c G6 Server
+   		HP ProLiant BL420c Gen8 Server
+   		HP ProLiant BL280c G6 Server
+   		HP ProLiant BL2x220c G7 Server
+   		HP ProLiant BL2x220c G6 Server
+   		HP ProLiant DL990 G7 Server
+   		HP ProLiant DL980 G7 Server
+   		HP ProLiant DL785 G6 Server
+   		HP ProLiant DL585 Gen8 Server
+   		HP ProLiant DL585 G7 Server
+   		HP ProLiant DL585 G6 Server
+   		HP ProLiant DL580 G7 Server
+   		HP ProLiant DL385p Gen8 Server
+   		HP ProLiant DL385 G7 Server
+   		HP ProLiant DL385 G6 Server
+   		HP ProLiant DL380e Gen8 Server
+   		HP ProLiant DL380p Gen8 Server
+   		HP ProLiant DL380 G7 SE Server
+   		HP ProLiant DL380 G6 Server
+   		HP ProLiant DL370 G6 Server
+   		HP ProLiant DL365 Server
+   		HP ProLiant DL360e Gen8 Server
+   		HP ProLiant DL360p Gen8 Server
+   		HP ProLiant DL360 G6 Server
+   		HP Proliant DL340 Gen8 Server
+   		HP ProLiant DL320e Gen8 Server
+   		HP ProLiant DL320 G6 Server
+   		HP ProLiant DL160 Gen8 Server
+   		HP ProLiant ML370 G6 Server
+   		HP ProLiant ML350e Gen8 Server
+   		HP ProLiant ML350 G6 Server
+   		HP ProLiant ML330 G6 Server
+   		HP ProLiant ML310e Gen8 Server
+   		HP ProLiant SL4545 G7 Server
+   		HP ProLiant SL4540 Gen8 Server
+   		HP ProLiant SL390s Gen8 Server
+   		HP ProLiant SL270s Gen8 Server
+   		HP ProLiant SL250s Gen8 Server
+   		HP ProLiant SL230s Gen8 Server
+   		HP ProLiant SL160e Gen8 Server
+   		HP ProLiant SL140s Gen8 Server
+   		HP ProLiant WS460c G8 Workstation Blade
+   		HP ProLiant WS460c G6 Workstation Blade  
+                        
+OPERATING SYSTEMS:  
+   		Red Hat Enterprise Linux 6 Server (x86-64)
+   		Red Hat Enterprise Linux 6 Server (x86)
+   		Red Hat Enterprise Linux 5 Server (x86-64)
+   		Red Hat Enterprise Linux 5 Server (x86)
+   		Red Hat Enterprise Linux 4 (AMD64/EM64T)
+   		Red Hat Enterprise Linux 4 (x86)
+   		SUSE LINUX Enterprise Server 11 (AMD64/EM64T)
+   		SUSE LINUX Enterprise Server 11 (x86)
+   		SUSE LINUX Enterprise Server 10 (AMD64/EM64T)
+   		SUSE LINUX Enterprise Server 10 (x86)
+   		VMware ESX/ESXi 4.1
+   		VMware ESX/ESXi 4.0
+   		VMware ESX/ESXi Server 3.5
+
+SYSTEM CONFIGURATION:  	N/A
+
+PREREQUISITE:  	N/A
+
+EFFECTIVE DATE:	12/30/2011
+
+ELECTRONIC DISTRIBUTION ALLOWED: Yes
+
+SOFTPAQ UTILITY VERSION:  N/A
+
+SUPERSEDES:   3.10.0
+
+DESCRIPTION:  
+	This is a set of sample XML script used to manage the configuration of Lights-Out
+      management processors and to control servers in which the following devices are in use:
+                  	Integrated Lights-Out 4
+                  	Integrated Lights-Out 3
+                  	Integrated Lights-Out 2  
+ 
+Note:	
+	Use CPQLOCFG.EXE ver 4.00 or greater with these scripts.
+           
+	See "HP Integrated Lights-Out Management Processor Scripting and Command Line 
+      Resource Guide" for more information on scripting and the syntax of the RIBCL XML.                                                 
+
+DOCUMENTATION:
+
+	HP Lights-Out User Guides and HP Integrated Lights-Out Management Processor Scripting
+	and Command Line Resource Guide can be found in the Document section of 
+      http://hp.com/go/ilo.
+
+HOW TO USE:
+
+	Unzip/Untar linux-LOsamplescripts4.00.0.tgz to a subdirectory. 
+	This file contains the following scripts:
+
+   	Add_SSO_Rec.xml - Add an HP SIM Single Sign-On (SSO) record to the end of the database.
+
+   	Add_User.xml - Add a user to the Lights-Out device user database.
+
+   	Administrator_reset_pw.xml- Reset the default administrator account password using HPONCFG.
+
+   	Cert_Request.xml - Request a Certificate Signing Request from Lights-Out device.
+
+   	Change_Password.xml - Change the password of an existing Light-Out device user.
+
+   	Clear_AHS_Data.xml - Clear the AHS data.
+
+   	Clear_EventLog.xml - Clear the Light-Out device Event Log.
+
+   	Clear_IML.xml - Clear the server Integrated Management Log (IML).
+
+   	Clear_Power_On_Time.xml - Clear the power-on time counter.
+
+   	Computer_Lock_Config.xml - Change the values for Computer Lock settings.
+
+   	Delete_SSH_Key.xml - This is a sample XML script that deletes existing SSH key.
+
+   	Delete_SSO_Rec.xml - Delete an HP SIM Single Sign-On (SSO) record by index.
+
+   	Delete_User.xml - Delete a user from the Light-Out device user database.
+
+   	Eject_Virtual_Media.xml - Ejects the image of the specified Virtual Media device.
+
+   	Factory_Defaults.xml - Sets the Lights-out device to factory default settings.
+
+   	Get_2Factor.xml - Obtain the two factor authentication configuration settings.
+
+   	Get_AHS_Status.xml - This is a sample XML script to find out if AHS is enabled or disabled.
+      
+   	Get_All_Languages.xml - This is a sample XML script to read all languages that are supported on iLO.
+
+   	Get_All_User_Info.xml - Return the configuration details for all users.
+
+   	Get_All_Users.xml - Return a list of all user accounts on Lights-Out device.
+
+   	Get_Cert_Subject_Info.xml - This is a sample XML script to retrieve iLO 2 certificate subject
+                                  information.
+
+   	Get_Diagport.xml - Return BL p-class diagport settings.
+
+   	Get_Directory.xml - Return the current directory configuration of an Lights-Out device.
+
+   	Get_EmHealth.xml - Return the health information of the server.
+
+   	Get_Enc_Bay_IP_Settings.xml - Obtain static IP settings of individual blades
+                                    in the respective enclosure.
+   
+   	Get_FW_Version.xml - Return the version and date/time of the Lights-Out device firmware.
+
+   	Get_Global.xml - Return global settings.
+
+   	Get_Host_APO.xml - Retrieve server automatic power on and power on delay settings.
+
+   	Get_Host_Data.xml - Retrieve SMBIOS data from Server Information page.
+
+   	Get_Host_Pwr_Micro_Ver.xml - Power Micro Firmware revision information of the server.
+
+   	Get_Host_Pwr_Reg_Info.xml - Obtain the power regulator state information for
+                                  supported platforms.
+   
+   	Get_Host_Power.xml - Return the current power state of the host server.
+
+   	Get_Host_Power_Saver.xml - Return the current Power Regulator setting.f   	   	
+
+   	Get_iLO_Log.xml - Retrieve the records in the Lights-Out device Event Log.
+
+   	Get_IML.xml - Retrieve the records in the Integrated Management Log.
+
+   	Get_language.xml - This is a sample XML script to get the default language 
+                         setting and to retrieve the list of installed languages.
+
+   	Get_Network.xml - Return network settings.
+
+   	Get_OA_Info.xml - Return enclosure data for c-Class Blade Infrastructure.
+
+   	Get_One_Time_Boot_Order.xml - This is a sample XML script to retrieve the 
+                                    current State of the One Time Boot.
+
+   	Get_Persistent_Boot_Order.xml - This is a sample XML script to retrieve the
+                                      current State of the Boot Order.
+
+   	Get_Power_On_Time.xml - Return the number of minutes the server has been
+                              powered on and running.
+
+   	Get_Power_Readings.xml: Return the power readings from the server.
+
+   	Get_PowerCap.xml - Return Power Cap setting.
+
+   	Get_Pwreg_Alert_Threshold.xml - Return the current power alert threshold settings.
+
+   	Get_Server_Name.xml: Return the host server name.
+
+   	Get_SNMP_IM.xml - Return the current SNMP and Insight Manager security settings.
+
+   	Get_SSO_Settings.xml - Retrieve the HP SIM Single Sign-On (SSO) settings.
+
+   	Get_Topology.xml - Return BL p-Class rack infrastructure topology.
+
+   	Get_UID_Status.xml - Return the current state of the server's Unit ID (UID) on 
+                           the host server.
+
+   	Get_User.xml - Return the configuration details for a single user.
+
+   	Get_VM_Status.xml - Return the status of the specified Virtual Media device.
+
+   	Hotkey_Config.xml - Change the values for Remote Console hotkeys.
+
+   	Import_2Factor_Cert.xml - Import certificates into iLO.
+
+   	Import_Cert.xml - Import a signed certificate into a Lights-Out device.
+
+   	Import_SSH_Key.xml - Imports SSH key into a Lights-Out device.
+   
+   	Insert_Virtual_Media.xml - Inserts the Virtual Media image via specified URL.
+
+   	License.xml - Add the iLO Advanced Pack license key for a server.
+
+   	Lock_Configuration.xml - Enable/disable the datacenter configuration lock.
+
+   	Mod_2Factor.xml - Configure two-factor authentication settings.
+
+   	Mod_Blade_Rack.xml - Change the BL p-Class blade and rack settings.
+
+   	Mod_ConsoleCapture_Port_Settings.xml - This is a sample XML script to disable
+                                             or enable console capture port for
+                                             Integrated Lights-Out 2 (iLO 2).                                           
+
+   	Mod_DiagPort_Settings.xml - Change the Lights-Out device Diagnostic Port
+                                  network settings.
+
+   	Mod_Directory.xml - Change the directory settings of an Lights-Out device.
+   
+   	Mod_Enc_Bay_IP_Settings.xml - Modify the static IP settings of individual blades
+                                    in the respective enclosure.
+
+   	Mod_Global_Settings.xml - Change the Lights-Out device Global Settings.
+
+   	Mod_Kerberos_Config.xml - To configure kerberos configuration.
+
+   	Mod_Network_Settings.xml - Change the Lights-Out device Network Settings.
+
+   	Mod_Schemaless_Directory.xml - Change the schemaless directory settings of an iLO.
+
+   	Mod_SNMP_IM_Settings.xml - Change the Lights-Out device SNMP and Insight
+                                 Manager Settings.
+
+   	Mod_SSO_Settings.xml - Configure the HP SIM Single Sign-On (SSO) settings.
+
+   	Mod_User.xml  - Change the login id, display name, password and/or
+                      privileges for an existing user account on a Lights-Out device.
+   
+   	Mod_VLAN.xml - Configure virtual LAN settings on a Light-Out device.
+
+   	Mod_VM_Port_Settings.xml - This is a sample XML script to configure the virtual media
+                                 port functionality on iLO.
+
+   	Mod_VSP_Flow_Control.xml - Change the VSP SOFTWARE FLOW CONTROL value.
+   
+   	RBSU_POST_IP.xml - Configure Lights-Out device to display the IP address at POST.
+
+   	Reset_RIB.xml - Restart the Lights-Out Management Processor.
+
+   	Reset_Server.xml - Immediately power off and back on the host server.
+
+   	Set_AHS_Status.xml - This is a sample XML script to enable or disable AHS logging.
+
+   	Set_Brownout.xml - This is a sample XML script to enable or disable brownout support.
+
+   	Set_CSR_Custom.xml - This is a sample XML script to set certificate signing request
+                           settings with custom subject info.
+
+   	Set_CSR_Default.xml - This is a sample XML script to set certificate signing request 
+                            settings to default subject info.   	   
+
+   	Set_Fqdn.xml - To change the iLO SSL self signed certificate fqdn selection.
+
+   	Set_Host_APO.xml - Change server automatic power on and power on delay settings.
+
+   	Set_Host_Power_Saver.xml - Change the Power Regulator setting.
+
+   	Set_Host_Power.xml - Power on/off the host server.
+      
+	Set_Language.xml - This is a sample XML script to set the default language on iLO.
+
+   	Set_One_Time_Boot_Order.xml - This is a sample XML script to Set One Time Boot Order.
+
+   	Set_Persistent_Boot_Order.xml - This is a sample XML script to Set Persistent Boot Order.
+
+   	Set_PowerCap.xml - Change the Power Cap setting.
+
+   	Set_Pwreg_Alert_Threshold.xml - Change the power alert threshold settings.
+
+   	Set_Server_Name.xml - Set the host server name.
+
+   	Set_Virtual_Power_BTN.xml - This is a sample XML script to simulate physical press
+                                  of the server power button, cold boot and warm boot.
+
+   	Set_VM_Status.xml - Set the boot options, write protection of the specified 
+                          Virtual Media device.
+
+   	Shared_Network_Port.xml - Configure Lights-Out device to pass network traffic
+                                on the shared host network port on supported platforms.
+
+   	UID_Control.xml - Turn on/off the Unit ID (UID) light on the host server.
+
+   	Update_Firmware.xml - Flash the Lights-Out device firmware to a new version.
+
+   	hponcfgcap.xml - Capture the current iLO configuration such as Global Settings,
+                       Network Settings, Users Information and Directory Settings to a file
+                       using HPONCFG. 
+
+   	hponcfg_reformat.xsl - The stylesheet (.xsl) converts the iLO configuration captured
+                             using hponcfgcap.xml to a format that can be used to restore
+                             the configuration of iLO. 
+
+   	locfg.pl - Sample PERL script to send XML commands. 
+
+   	vspconfig.pl - Set the Virtual Serial Port Configuration for Linux.
+
+   	ilo_perl_xml.pdf - Document PERL script usage.
+
+   	linux-LOsamplescripts4.00.0.txt - this file.
+
+
+Utilities and documentation may be downloaded from:
+
+   http://www.hp.com/support
+
+   A valid iLO user account and password is required for each
+   XML script when using CPQLOCFG.  The user account must have
+   appropriate lights-out privileges to process the request.
+
+   The locfg.pl script connects to the iLO management processor
+   using a Secure Sockets Layer (SSL) connection.
+
+perl locfg.pl -s {servername|ipaddress}[:port] [-l logfile] -f input_file [-u username -p password] [-ilo2|-ilo3]
+
+ Where:
+        -s servername is the DNS name of target server.
+        -s ipaddress is the IP Address of the target server.
+           If a port is not specified, the port will default to :443.
+                DO NOT USE this switch if launching from System Insight Manager.
+
+        -l logfile is the name of the file to log all output to.
+           A default file with the server name/ipaddress is created
+           if this option is not specified.
+                DO NOT USE this switch if launching from System Insight Manager.
+
+        -f input_file is the filename containing the RIB Commands
+        -u username
+        -p password  Command line user name and password override those
+           which are in the script file.
+           Note: Use -u and -p with caution as command line options are visible on Linux.
+        -ilo2|-ilo3|-ilo4
+           Specifies the type of device on the server. 
+           Note: locfg.pl detects the device automatically if this option is not present.
+
+Using vspconfig.pl
+   This script will modify the following two files:
+		\etc\inittab
+		\etc\securetty
+
+    usage: vspconfig.pl [-h] -t [0|1|2|3] 
+          
+          -h 	: This help message
+          -t	: Specify terminal (ttyS)
+
+     For information about the iLO Virtual Serial Port (VSP),
+     refer to:
+           Integrated Lights-Out Virtual Serial Port 
+           configuration and operation
+     
+     This document can be found on www.hp.com. 
+
+
+Copyright 2005,2012 Hewlett-Packard Development Company, L.P.
+
+Hewlett-Packard and the Hewlett-Packard logo are trademarks of Hewlett-Packard
+Development Company, L.P/ in the U.S. and/or other countries.

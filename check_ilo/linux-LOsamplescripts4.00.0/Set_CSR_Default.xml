@@ -1,0 +1,75 @@
+<!--         RIBCL Sample Script for HP Lights-Out Products          -->
+<!--Copyright (c) 2012 Hewlett-Packard Development Company, L.P.     -->
+
+<!-- Description:  This is a sample XML script to set certificate    -->
+<!--               signing request settings to default subject info. -->
+<!--               These CSR settings will be employed the next time -->
+<!--               when iLO generates a new CSR.	               -->
+
+<!-- NOTE:  You will need to replace the USER_LOGIN and PASSWORD     -->
+<!--        values with values that are appropriate for your         -->
+<!--        environment.                                             -->
+
+<!--        Use CPQLOCFG.EXE ver 3.20 or greater with this script.   -->
+
+<!--        This script was written for iLO 2 firmware version 2.06  -->
+<!--        release.                                                 -->
+
+<!-- Help:                                                           -->
+<!-- CSR_USE_CERT_CUSTOM_SUBJECT :                                   -->
+<!--      This indicates whether to use custom or default settings   -->
+<!--      for CSR generation.                                        -->
+<!--      When set to No, it enables using of Default CSR values.    -->
+<!-- Note: Since this script is for default subject settings, this   -->
+<!--      tag should be present and the value should be set to No.   -->
+
+<!-- CSR_USE_CERT_FQDN :                                             -->
+<!--      When this field is set to Yes, iLO's FQDN name is used as  -->
+<!--      subject CN.                                                -->
+<!--      When this field is set to No, iLO's short name is used as  -->
+<!--      subject CN.                                                -->
+<!--      When this tag is absent from the script, current setting   -->
+<!--      is used.                                                   -->
+
+<!-- CSR_USE_CERT_2048PKEY:                                          -->
+<!--      This field is used to set the length of private key.       -->
+<!--      When set to Yes, private key of 2048 bit will be used, and -->
+<!--      when set to NO, a 1024 bit key is used.                    -->
+<!--      If this tag is absent from the script, the current setting -->
+<!--      will be used.                                              -->
+<!-- NOTE: When the 2048 bit private key is enabled, iLO 2 might take-->
+<!--      significant amount of time to generate the certificate for -->
+<!--      the first time. It is suggested to wait for sometime before-->
+<!--      requesting the iLO 2 for CSR.                              -->
+
+<!-- NOTE:                                                           -->
+<!--      Following are the subject info used for Default CSR:       -->
+<!--        Country Name : "US"                                      -->
+<!--        State: "Texas"                                           -->
+<!--        Location: "Houston"                                      -->
+<!--        Organization Name: "Hewlett-Packard Development Company" -->
+<!--        Organization Unit Name: "ISS"                            -->
+<!--        Certificate Common Name: iLO's Name-either FQDN or Short -->
+<!--        Name depends on the value of CSR_USE_CERT_FQDN.          -->
+
+<!--        See "HP Integrated Lights-Out Management Processor       -->
+<!--        Scripting and Command Line Resource Guide" for more      -->
+<!--        information on scripting and the syntax of the RIBCL     -->
+<!--        XML.                                                     -->
+
+<!--        Firmware support information for this script:            -->
+<!--            iLO 4 - None.                                        -->
+<!--            iLO 3 - None.                                        -->
+<!--            iLO 2 - Verison 2.06 or later.                       -->
+
+<RIBCL VERSION="2.0">
+  <LOGIN USER_LOGIN="adminname" PASSWORD="password">
+    <RIB_INFO MODE="write">
+      <CSR_CERT_SETTINGS>
+        <CSR_USE_CERT_CUSTOM_SUBJECT VALUE = "No"/>
+        <CSR_USE_CERT_FQDN VALUE = "Yes" />
+        <CSR_USE_CERT_2048PKEY VALUE = "No" />
+      </CSR_CERT_SETTINGS>
+    </RIB_INFO>
+  </LOGIN>
+</RIBCL>

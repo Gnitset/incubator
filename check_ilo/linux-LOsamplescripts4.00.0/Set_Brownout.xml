@@ -1,0 +1,37 @@
+<!--         RIBCL Sample Script for HP Lights-Out Products          -->
+<!--Copyright (c) 2012 Hewlett-Packard Development Company, L.P.     -->
+
+<!-- Description:  This is a sample XML script to enable or disable  -->
+<!--               brownout support.                                 -->
+
+<!-- NOTE:  You will need to replace the USER_LOGIN and PASSWORD     -->
+<!--        values with values that are appropriate for your         -->
+<!--        environment.                                             -->
+
+<!--        Use CPQLOCFG.EXE ver 4.00 or greater with this script.   -->
+
+<!--        This script was written for iLO 4 firmware version 1.01  -->
+<!--        release.                                                 -->
+
+<!--        See "HP Integrated Lights-Out Management Processor       -->
+<!--        Scripting and Command Line Resource Guide" for more      -->
+<!--        information on scripting and the syntax of the RIBCL     -->
+<!--        XML.                                                     -->
+
+<!--        Firmware support information for this script:            -->
+<!--            iLO 4 - All versions.                                -->
+<!--            iLO 3 - Version 1.25 or later                        -->
+<!--            iLO 2 - Version 2.06 or later                        -->
+
+<RIBCL VERSION="2.0">
+ <LOGIN USER_LOGIN="Administrator" PASSWORD="password">
+  <RIB_INFO MODE="write">
+   <MOD_GLOBAL_SETTINGS>
+     <!-- Disable brownout recovery -->
+     <BROWNOUT_RECOVERY VALUE="No"/>   
+     <!--Enable  brownout recovery -->
+     <!-- <BROWNOUT_RECOVERY VALUE="Yes"/>  -->
+   </MOD_GLOBAL_SETTINGS>
+  </RIB_INFO>
+ </LOGIN>
+</RIBCL>

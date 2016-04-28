@@ -1,0 +1,129 @@
+<!--         RIBCL Sample Script for HP Lights-Out Products          -->
+<!--Copyright (c) 2012 Hewlett-Packard Development Company, L.P.     -->
+
+<!-- Description:  This is a sample XML script to configure the      -->
+<!--               Global Settings for following devices:            -->
+<!--                 Integrated Lights-Out 4 (iLO 4)                 -->
+<!--                 Integrated Lights-Out 3 (iLO 3)                 -->
+<!--                 Integrated Lights-Out 2 (iLO 2)                 -->
+
+<!-- NOTE:  You will need to replace the USER_LOGIN and PASSWORD     -->
+<!--        and other values inside the quotation marks with values  -->
+<!--        that are appropriate for your environment.               -->
+
+<!--        You might need to tailor this script for the firmware    -->
+<!--        running on your Lights-Out device according to the       -->
+<!--        information in "Firmware support information" comment(s).-->
+
+<!--        Double check your values before executing this script.   -->
+<!--        Incorrect or mismatched port settings may cause you      -->
+<!--        to lose the ability to connect to your Lights-Out device.-->
+
+<!--        The Lights-Out device (not the server) will reset        -->
+<!--        automatically to make changes to port settings effective -->
+
+<!--        Setting the ILO_FUNCT_ENABLED to No will disable the     -->
+<!--        management functions of iLO 4,iLO 3, and iLO 2. If       -->
+<!--        disabled, you must use the iLO Security Override Switch  -->
+<!--        on your server's system board  and the                   -->
+<!--        iLO 4/iLO 3/iLO 2                                        -->
+<!--        ROM-Based Setup Utility (F8) to re-enable iLO 4/iLO 3/   -->
+<!--        iLO 2.                                                   -->
+
+<!--        Use CPQLOCFG.EXE ver 4.00 or greater with this script    -->
+
+<!--        This script was written for iLO 4 firmware version 1.01  -->
+<!--        release.                                                 -->
+
+<!--        See "HP Integrated Lights-Out Management Processor       -->
+<!--        Scripting and Command Line Resource Guide" for more      -->
+<!--        information on scripting and the syntax of the RIBCL     -->
+<!--        XML.                                                     -->
+
+<!--        Firmware support information for this script:            -->
+<!--            iLO 4 - All versions.                                -->
+<!--            iLO 3 - All versions.                                -->
+<!--            iLO 2 - All versions.                                -->
+
+<RIBCL VERSION="2.0">
+   <LOGIN USER_LOGIN="adminname" PASSWORD="password">
+      <RIB_INFO MODE="write">
+         <MOD_GLOBAL_SETTINGS>
+            <SESSION_TIMEOUT value="0"/>
+            <F8_PROMPT_ENABLED value="Yes"/>
+            <HTTP_PORT value="80"/>
+            <HTTPS_PORT value="443"/>
+            <REMOTE_CONSOLE_PORT value="17990"/>
+            <!--        Firmware support information for next 4 tags:      -->
+            <!--            iLO 4 - All versions.                          -->
+            <!--            iLO 3 - All versions.                          -->
+            <!--            iLO 2 - All versions.                          -->            
+            <MIN_PASSWORD value="8"/>
+            <ILO_FUNCT_ENABLED value="Yes"/>
+            <VIRTUAL_MEDIA_PORT value="17988"/>
+            <F8_LOGIN_REQUIRED value="No"/>
+            <!--        Firmware support information for next 3 tags:      -->
+            <!--            iLO 4 - All versions.                          -->
+            <!--            iLO 3 - All versions.                          -->
+            <!--            iLO 2 - Version 1.30 and later.                -->            
+            <ENFORCE_AES value="N"/>
+            <AUTHENTICATION_FAILURE_LOGGING value="3"/>
+            <!--        Firmware support information for next 5 tags:      -->
+            <!--            iLO 4 - All versions.                          -->
+            <!--            iLO 3 - All versions.                          -->
+            <!--            iLO 2 - All versions.                          -->            
+            <SSH_PORT value="22"/>
+            <SSH_STATUS value="Yes"/>
+            <SERIAL_CLI_STATUS value="3"/>
+            <SERIAL_CLI_SPEED value="1"/>
+            <RBSU_POST_IP value="Y"/>
+
+<!--  #########	 None of the following tags are supported on iLO 3 and iLO 4 ######## --> 
+
+            <!--        Firmware support information for the next 7 tags:  -->
+            <!--            iLO 2 - All versions.                          -->
+            <!-- <REMOTE_CONSOLE_PORT_STATUS value="2"/>                   -->          
+            <!-- <REMOTE_CONSOLE_ENCRYPTION value="Yes"/>                  -->
+            <!-- <REMOTE_KEYBOARD_MODEL value="US"/>                       -->       
+            <!-- <PASSTHROUGH_CONFIG value="1"/>                           -->       
+            <!-- <TERMINAL_SERVICES_PORT value="3389"/>                    -->           
+            <!-- <TELNET_ENABLE value="yes"/>                              -->  
+            <!-- <HIGH_PERFORMANCE_MOUSE value="Yes" />                    -->             
+                   
+            <!--        Firmware support information for next 11 tags:     -->
+            <!--            iLO 2 - Version 1.30 and later.                -->            
+            <!-- <CONSOLE_CAPTURE_ENABLE value="Yes" />                    -->
+            <!-- <CONSOLE_CAPTURE_BOOT_BUFFER_ENABLE value="Yes" />        -->
+            <!-- <CONSOLE_CAPTURE_FAULT_BUFFER_ENABLE value="Yes" />       -->
+            <!-- <INTERACTIVE_CONSOLE_REPLAY_ENABLE value="Yes" />         -->
+            <!-- <CONSOLE_CAPTURE_PORT value="17990" />                    -->
+            <!-- <CAPTURE_AUTO_EXPORT_ENABLE value="No" />                 -->
+            <!-- <CAPTURE_AUTO_EXPORT_LOCATION value="HTTP://1.1.1.1/folder/capture%h%t.ilo" />  -->
+            <!-- <CAPTURE_AUTO_EXPORT_USERNAME value="username" />         -->
+            <!-- <CAPTURE_AUTO_EXPORT_PASSWORD value="password" />         -->
+            <!-- <SHARED_CONSOLE_ENABLE value="No" />                      -->
+            <!-- <SHARED_CONSOLE_PORT value="9300" />                      -->
+
+            <!--        Firmware support information for next 2 tags:      -->
+            <!--            iLO 2 - Version 1.77 and later.                -->           
+            <!-- <KEY_UP_KEY_DOWN value="Yes"/>                            -->
+            <!-- <CAPTURE_MANUAL_EXPORT value="Yes"/>                      -->
+
+            <!--        Firmware support information for next tag:         -->
+            <!--            iLO 2 - Version 1.10 and later.                -->
+            <!-- <REMOTE_CONSOLE_ACQUIRE value="Yes"/>                     -->
+
+            <!--        Firmware support information for next tag:         -->
+            <!--            iLO 2 - Version 1.43 and later.                -->            
+            <!-- Note: iLO must be reset for new VSP_SOFTWARE_FLOW_CONTROL -->
+            <!-- setting to take effect.                                   -->
+            <!-- <VSP_SOFTWARE_FLOW_CONTROL value="No"/>                   -->
+
+            <!--        Firmware support information for next tag:         -->
+            <!--            iLO 2 - Version 1.50 and later.                -->            
+            <!-- <RAWVSP_PORT VALUE="3002"/>                               -->   
+        
+         </MOD_GLOBAL_SETTINGS>
+      </RIB_INFO>
+   </LOGIN>
+</RIBCL>

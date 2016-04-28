@@ -1,0 +1,80 @@
+<!--         RIBCL Sample Script for HP Lights-Out Products          -->
+<!--Copyright (c) 2012 Hewlett-Packard Development Company, L.P.     -->
+
+<!-- Description:  This is a sample XML script to configure the      -->
+<!--               SNMP and Insight Manager integration settings for -->
+<!--               following devices:                                -->
+<!--                 Integrated Lights-Out 4 (iLO 4)                 -->
+<!--                 Integrated Lights-Out 3 (iLO 3)                 -->
+<!--                 Integrated Lights-Out 2 (iLO 2)                 -->
+
+<!-- NOTE:  You will need to replace the USER_LOGIN and PASSWORD     -->
+<!--        and other values inside the quotation marks with values  -->
+<!--        that are appropriate for your environment.               -->
+
+<!--        Use CPQLOCFG.EXE ver 4.00 or greater with this script.   -->
+
+<!--        This script was written for iLO 4 firmware version 1.01  -->
+<!--        release.                                                 -->
+
+<!--        CIM_SECURITY_MASK should have values 1 (Disabled) or     -->
+<!--        3 (Enabled.)                                             -->
+
+<!--        See "HP Integrated Lights-Out Management Processor       -->
+<!--        Scripting and Command Line Resource Guide" for more      -->
+<!--        information on scripting and the syntax of the RIBCL     -->
+<!--        XML.                                                     -->
+
+<!--        Firmware support infomation for this script:             -->
+<!--            iLO 4 - All versions.                                -->
+<!--            iLO 3 - Version 1.20 or later.                       -->
+<!--            iLO 2 - All Versions.                                -->
+
+<RIBCL VERSION="2.0">
+   <LOGIN USER_LOGIN="adminname" PASSWORD="password">
+    <RIB_INFO MODE="write">
+     <MOD_SNMP_IM_SETTINGS>
+
+<!--   Firmware support infomation for the next 8 tags:             -->
+<!--            iLO 4 - None.                                       -->
+<!--            iLO 3 - None.                                       -->
+<!--            iLO 2 - All Versions.                               -->
+
+<!--  <WEB_AGENT_IP_ADDRESS value="192.168.125.120"/>               -->
+<!--  <SNMP_ADDRESS_1 value="192.168.125.121"/>                     -->
+<!--  <SNMP_ADDRESS_2 value="192.168.125.122"/>                     -->
+<!--  <SNMP_ADDRESS_3 value="192.168.125.123"/>                     -->
+<!--  <OS_TRAPS value="Yes"/>                                       -->
+<!--  <SNMP_PASSTHROUGH_STATUS value="Yes"/>                        -->
+<!--  <RIB_TRAPS value="No"/>                                       -->
+<!--  <CIM_SECURITY_MASK value="3"/>                                -->
+  
+<!--       Firmware support infomation for the below tags:          -->
+<!--            iLO 4 - All versions.                               -->
+<!--            iLO 3 - Version 1.20 or later.                      -->
+<!--            iLO 2 - None.                                       -->
+
+      <SNMP_ADDRESS_1 VALUE="192.168.100.1"/>
+      <SNMP_ADDRESS_1_ROCOMMUNITY VALUE="public1"/>
+      <SNMP_ADDRESS_1_TRAPCOMMUNITY VERSION="v1" VALUE="trapcomm1"/>
+      <SNMP_ADDRESS_2 VALUE="192.168.100.2"/>
+      <SNMP_ADDRESS_2_ROCOMMUNITY VALUE="public2"/>
+      <SNMP_ADDRESS_2_TRAPCOMMUNITY VERSION="v2c" VALUE="trapcomm2"/>
+      <SNMP_ADDRESS_3 VALUE="192.168.100.3"/>
+      <SNMP_ADDRESS_3_ROCOMMUNITY VALUE="public3"/>
+      <SNMP_ADDRESS_3_TRAPCOMMUNITY VERSION="1" VALUE="trapcomm3"/>
+      <OS_TRAPS value="Yes"/>      
+      <RIB_TRAPS value="Yes"/>
+      <AGENTLESS_MANAGEMENT_ENABLE value="Yes"/>
+      <WEB_AGENT_IP_ADDRESS value=""/>
+      <SNMP_PASSTHROUGH_STATUS value="No"/>
+      <SNMP_SYS_CONTACT VALUE="Mr. System Administrator"/>
+      <SNMP_SYS_LOCATION VALUE="HP Data Center, Hockley, TX"/>
+      <SNMP_SYSTEM_ROLE VALUE="Brief Role Description [60 characters]"/>
+      <SNMP_SYSTEM_ROLE_DETAIL VALUE="Extended role description [500 characters]"/>
+      <CIM_SECURITY_MASK value="3"/>
+      <COLD_START_TRAP_BROADCAST value="No"/>
+    </MOD_SNMP_IM_SETTINGS>
+  </RIB_INFO>
+  </LOGIN>
+</RIBCL>

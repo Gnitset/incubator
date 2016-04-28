@@ -1,0 +1,46 @@
+<!--         RIBCL Sample Script for HP Lights-Out Products          -->
+<!--  Copyright (c) 2012 Hewlett-Packard Development Company, L.P.   -->
+
+<!-- Description: This is a sample XML script to Set One Time Boot   -->
+<!--                                Order.                           -->
+
+<!-- NOTE:  You will need to replace the USER_LOGIN and PASSWORD     -->
+<!--        and other values inside the quotation marks with values  -->
+<!--        that are appropriate for your environment.               -->
+
+<!--        Use CPQLOCFG.EXE ver 4.00 or greater with this script.   -->
+
+<!--        iLO 2:						     -->
+<!--        This will take one boot device from "cdrom", "floppy",   -->
+<!--        "hdd", or "network".                                     -->
+
+<!--        iLO 3 version 1.00 or later:		             -->
+<!--        This will take one boot device from "cdrom", "floppy",   -->
+<!--        "hdd", "network", or "USB".                              -->
+
+<!--        iLO 3 version 1.28 or later:		             -->
+<!--        This will take one boot device from "cdrom", "floppy",   -->
+<!--        "hdd", "network", "RBSU", or "USB".                      -->
+
+<!--        iLO 4 version 1.01 or later:		             -->
+<!--        This will take one boot device from "cdrom", "floppy",   -->
+<!--        "hdd", "network", or "USB".                              -->
+
+<!--        See "HP Integrated Lights-Out Management Processor       -->
+<!--        Scripting and Command Line Resource Guide" for more      -->
+<!--        information on scripting and the syntax of the RIBCL     -->
+<!--        XML.                                                     -->
+
+<!--        Firmware support information for this script:            -->
+<!--              iLO 4 - All versions.                              -->
+<!--              iLO 3 - All versions.                              -->
+<!--              iLO 2 - Version 2.06 or later.                     -->
+
+<RIBCL VERSION="2.0">
+ <LOGIN USER_LOGIN="adminname" PASSWORD="password">
+   <SERVER_INFO MODE="write">
+    <SET_ONE_TIME_BOOT value = "FLOPPY"/>
+   </SERVER_INFO>
+ </LOGIN>
+</RIBCL>
+

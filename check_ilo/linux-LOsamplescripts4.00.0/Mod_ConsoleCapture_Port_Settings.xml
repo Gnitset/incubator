@@ -1,0 +1,44 @@
+<!--         RIBCL Sample Script for HP Lights-Out Products          -->
+<!--Copyright (c) 2012 Hewlett-Packard Development Company, L.P.     -->
+
+<!-- Description:  This is a sample XML script to disable or enable  -->
+<!--               console capture port for Integrated Lights-Out 2  -->
+<!--               (iLO 2).                                          --> 
+
+<!-- NOTE:  You will need to replace the USER_LOGIN and PASSWORD     -->
+<!--        and other values inside the quotation marks with values  -->
+<!--        that are appropriate for your environment.               -->
+
+<!-- Help:                                                           -->
+<!-- INTERACTIVE_CONSOLE_REPLAY_ENABLE:                              -->
+<!--        To enable port set the value to True/Yes/1/Y             -->
+<!--        To disable port set the value to False/No/0/N            -->
+<!--        Enable or disable of port will not reset the iLO         -->
+<!-- CONSOLE_CAPTURE_PORT:                                           -->
+<!--        Port value change would reset the iLO                    -->
+
+<!--        Use CPQLOCFG.EXE ver 3.20 or greater with this script    -->
+
+<!--        This script was written for iLO 2 firmware version 2.06  -->
+<!--        release.                                                 -->
+
+<!--        See "HP Integrated Lights-Out Management Processor       -->
+<!--        Scripting and Command Line Resource Guide" for more      -->
+<!--        information on scripting and the syntax of the RIBCL     -->
+<!--        XML.                                                     -->
+
+<!--        Firmware support information for this script:            -->
+<!--            iLO 4 - None.                                        -->
+<!--            iLO 3 - None.                                        -->
+<!--            iLO 2 - Version 2.06 or later.                       -->
+
+<RIBCL VERSION="2.0">
+  <LOGIN USER_LOGIN="Administrator" PASSWORD="password">
+  <RIB_INFO MODE="write">
+    <MOD_GLOBAL_SETTINGS>
+      <INTERACTIVE_CONSOLE_REPLAY_ENABLE VALUE = "No" /> 
+      <CONSOLE_CAPTURE_PORT VALUE = "17990" />  
+    </MOD_GLOBAL_SETTINGS>
+  </RIB_INFO>
+  </LOGIN>
+</RIBCL>
