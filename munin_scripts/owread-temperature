@@ -1,0 +1,22 @@
+#! /bin/sh
+
+if [[ x"$1" = x"config" ]]; then
+	cat <<'EOM'
+graph_title Environment Temperature
+graph_vlabel degree Celsius
+graph_category Temp
+graph_info This graph monitors the temperature
+graph_data_size custom 1y, 1h for 2y, 1d for 5y
+graph_scale no
+
+bryggstugan.label Bryggstugan
+bryggstugan.warning :30
+bryggstugan.critical :35
+utomhus.label Utomhus
+utomhus.warning -25:35
+EOM
+	exit 0
+fi
+
+owread /uncached/3B.A3D601000000/temperature12 |awk '{print "bryggstugan.value "$1}'
+owread /uncached/3B.79B501000000/temperature12 |awk '{print "utomhus.value "$1}'
