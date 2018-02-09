@@ -1,0 +1,18 @@
+domains:
+    example.com:
+        server: ldaps://10.0.0.0:636
+        password_max_days: 90
+        password_days_left: 7
+        user: passwordreminder
+        password: ChangeMe!
+    example.net:
+        server: ldaps://10.11.11.11:636
+        password_max_days: 90
+        password_days_left: 7
+        user: passwordreminder
+        password: ChangeMe!
+mail:
+    from_name: Password Reminder
+    from_mail: support@example.com
+    server: localhost
+    error_recipient: noc@example.com
