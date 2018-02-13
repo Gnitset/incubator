@@ -3,7 +3,7 @@ Description=AD Password changer web interface
 
 [Service]
 WorkingDirectory=/opt/incubator/change-ad-pw
-ExecStart=/usr/bin/env python web_pwchanger.py --port %i
+ExecStart=/usr/bin/env python web_pwchanger.py -p %i
 Restart=always
 StandardOutput=syslog
 StandardError=syslog
