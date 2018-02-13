@@ -1,0 +1,13 @@
+[Unit]
+Description=AD Password changer web interface
+
+[Service]
+WorkingDirectory=/opt/incubator/change-ad-pw
+ExecStart=/usr/bin/env python web_pwchanger.py --port %i
+Restart=always
+StandardOutput=syslog
+StandardError=syslog
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
