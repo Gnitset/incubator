@@ -10,6 +10,7 @@ class ActiveDirectory(object):
 		self._ldap = ldap.initialize(server)
 		self._ldap.set_option(ldap.OPT_X_TLS_REQUIRE_CERT, ldap.OPT_X_TLS_NEVER)
 		self._ldap.set_option(ldap.OPT_X_TLS_NEWCTX, 0)
+		self._ldap.set_option(ldap.OPT_REFERRALS, 0)
 
 	def bind(self, username, password):
 		self.username = username
@@ -20,6 +21,8 @@ class ActiveDirectory(object):
 		return ("\"%s\"" % password).encode("utf-16-le")
 
 	def _find_user(self, username="*"):
+		if not self._connected:
+			raise Exception("Not connected")
 		base = ",".join(map(lambda s: "DC="+s, self.domain.split(".")))
 		return self._ldap.search_s(base, ldap.SCOPE_SUBTREE,
 			"(&(objectCategory=person)(objectClass=user)(sAMAccountName=%s))" % username)
@@ -42,7 +45,8 @@ class ActiveDirectory(object):
 		                              (ldap.MOD_ADD, "unicodePwd", to_password)])
 
 	def get_users_with_expired_passwords(self, max_days=90, days_left=0):
-		assert self._connected
+		if not self._connected:
+			raise Exception("Not connected")
 		now = datetime.datetime.now()
 		expiry_interval = datetime.timedelta(days=max_days)
 		days_left_interval = datetime.timedelta(days=days_left)
