@@ -7,19 +7,17 @@ import yaml
 
 import ActiveDirectory
 
-error_log = list()
-
 def mail_reminder(domain, name, email, days_left):
-	global config, verbose, noop
+	global config, verbose, noop, error_log
 	if verbose:
 		print name, email, days_left
-	if noop:
-		return
 	if not email:
 		error_log.append((domain,name,days_left))
 		return
 	if days_left.days < 0:
 		error_log.append((domain,name,email,days_left))
+		return
+	if noop:
 		return
 	return
 	msg = MIMEText("""Hi %s,
@@ -40,7 +38,7 @@ Your friendly Password Reminder""" % (name,domain,days_left))
 
 
 if __name__ == "__main__":
-	global config, verbose, noop
+	global config, verbose, noop, error_log
 	parser = argparse.ArgumentParser(description="Send email reminders for expiring passwords in AD")
 	parser.add_argument("-c", dest="config", default="config.yml")
 	parser.add_argument("-d", dest="domains", nargs="+")
@@ -48,6 +46,7 @@ if __name__ == "__main__":
 	parser.add_argument("-v", dest="verbose", action="store_true")
 	args = parser.parse_args()
 
+	error_log = list()
 	config = yaml.load(file(args.config))
 	verbose, noop = args.verbose, args.noop
 	if args.domains:
@@ -64,12 +63,16 @@ if __name__ == "__main__":
 		for user, user_data in expired_users.iteritems():
 			mail_reminder(domain, user_data["name"][0], user_data.get("mail",[None])[0], user_data["daysToExpiry"])
 
-	msg = MIMEText("Hi\n\nThese failed while sending password reminders\n"+"\n".join(("'%s'" % "', '".join(map(str, e_msg)) for e_msg in error_log)))
+	if verbose:
+		for e_msg in error_log:
+			print e_msg
+	if not noop:
+		msg = MIMEText("Hi\n\nThese failed while sending password reminders\n"+"\n".join(("'%s'" % "', '".join(map(str, e_msg)) for e_msg in error_log)))
 
-	msg["Subject"] = "Password expiry reminder - failues"
-	msg["From"] = "%s <%s>" % (config["mail"]["from_name"], config["mail"]["from_mail"])
-	msg["To"] = "<%s>" % (config["mail"]["error_recipient"])
+		msg["Subject"] = "Password expiry reminder - failues"
+		msg["From"] = "%s <%s>" % (config["mail"]["from_name"], config["mail"]["from_mail"])
+		msg["To"] = "<%s>" % (config["mail"]["error_recipient"])
 
-	s = smtplib.SMTP(config["mail"]["server"])
-	s.sendmail(msg["From"], [msg["To"]], msg.as_string())
-	s.quit()
+		s = smtplib.SMTP(config["mail"]["server"])
+		s.sendmail(msg["From"], [msg["To"]], msg.as_string())
+		s.quit()
